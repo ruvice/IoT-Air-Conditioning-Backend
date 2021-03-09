@@ -1,6 +1,8 @@
 from flask import Flask
 from flask_restful import Api, Resource, reqparse, abort, fields, marshal_with
 from flask_sqlalchemy import SQLAlchemy
+import pickle
+import numpy as np
 
 app = Flask(__name__)
 api = Api(app)
@@ -19,7 +21,6 @@ class VideoModel(db.Model):
     # Only when you want to print the representation of object
     def __repr__(self):
         return f"Video(name = {name}, views = {views}, likes = {likes})"
-
 
 video_put_args = reqparse.RequestParser()
 video_put_args.add_argument("name", type=str, help="Name of the video is required", required=True)
@@ -83,3 +84,9 @@ api.add_resource(Video, "/video/<int:video_id>")
 
 if __name__ == "__main__":
     app.run(debug=True)
+    # load the model from disk
+    loaded_model = pickle.load(open('knnpickle_file', 'rb'))
+    example_measures = np.array([[4,2,1,1,1,2,3,2,1], [4,2,1,2,2,2,3,2,1]])
+    example_measures = example_measures.reshape(len(example_measures), -1)
+    result = loaded_model.predict(example_measures)
+    print(result)
