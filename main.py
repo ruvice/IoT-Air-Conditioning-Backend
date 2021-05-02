@@ -22,8 +22,8 @@ class RSSIModel(db.Model):
     location = db.Column(db.Integer, nullable=False)
 
     # Only when you want to print the representation of object
-    def __repr__(self):
-        return f"RSSI(id = {id}, beacon1 = {beacon1}, beacon2 = {beacon2}, beacon3 = {beacon3})"
+    # def __repr__(self):
+    #     return f"RSSI(id = {id}, beacon1 = {beacon1}, beacon2 = {beacon2}, beacon3 = {beacon3})"
 
 
 class StatusModel(db.Model):
@@ -33,8 +33,8 @@ class StatusModel(db.Model):
     status = db.Column(db.Boolean, nullable=False)
 
     # Only when you want to print the representation of object
-    def __repr__(self):
-        return f"RSSI(id = {id}, status = {status})"
+    # def __repr__(self):
+    #     return f"RSSI(id = {id}, status = {status})"
 
 # Creates database
 # db.create_all()
