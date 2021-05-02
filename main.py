@@ -88,9 +88,9 @@ class Classify(Resource):
         print(resultJSON)
 
         count += 1
-        if (resultJSON == "[1]"){
-            correct += 1;
-        }
+        if (resultJSON == "[1]"):
+            correct += 1
+        
 
         # Updating status database to track status of aircon
         statusUpdate = StatusModel.query.filter_by(id=1).first()
