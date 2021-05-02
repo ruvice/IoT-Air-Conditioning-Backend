@@ -20,9 +20,10 @@ class RSSIModel(db.Model):
     beacon3 = db.Column(db.Integer, nullable=False)
     location = db.Column(db.Integer, nullable=False)
 
+    # Not supported by python version on azure
     # Only when you want to print the representation of object
-    def __repr__(self):
-        return f"RSSI(id = {id}, beacon1 = {beacon1}, beacon2 = {beacon2}, beacon3 = {beacon3})"
+    # def __repr__(self):
+    #     return f"RSSI(id = {id}, beacon1 = {beacon1}, beacon2 = {beacon2}, beacon3 = {beacon3})"
 
 # Creates database
 # db.create_all()
