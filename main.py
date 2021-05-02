@@ -10,9 +10,6 @@ api = Api(app)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///rssidatabase.db'
 db = SQLAlchemy(app)
 
-count = 0
-correct = 0
-
 # Class for Model to store in database
 class RSSIModel(db.Model):
     # Fields inside Video Model
@@ -77,6 +74,9 @@ status = False
 
 # Makes a class that inherits from Resource
 class Classify(Resource):
+
+    count = 0
+    correct = 0
     # @marshal_with(get_resource_fields)
     def get(self):
         args = rssi_get_args.parse_args()
