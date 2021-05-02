@@ -70,8 +70,6 @@ get_resource_fields = {
 # load the knn model from disk
 loaded_model = pickle.load(open('knnpickle_file', 'rb'))
 
-count = 0
-correct = 0
 # Makes a class that inherits from Resource
 class Classify(Resource):
     # @marshal_with(get_resource_fields)
@@ -84,9 +82,14 @@ class Classify(Resource):
         resultJSON = json.dumps(result.tolist())
         print(resultJSON)
 
-        count += 1
         if (resultJSON == "[1]"):
-            correct += 1
+            f = open("room_accuracy.txt", "a")
+            f.write("TRUE\n")
+            f.close()
+        else:
+            f = open("room_accuracy.txt", "a")
+            f.write("FALSE\n")
+            f.close()
         
 
         # Updating status database to track status of aircon
@@ -101,7 +104,6 @@ class Classify(Resource):
             statusUpdate.status = True
             db.session.add(statusUpdate)
             db.session.commit()
-        print(correct + "/" + count)
         return resultJSON
 
     @marshal_with(resource_fields)
