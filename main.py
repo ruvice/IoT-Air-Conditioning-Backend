@@ -70,13 +70,10 @@ get_resource_fields = {
 # load the knn model from disk
 loaded_model = pickle.load(open('knnpickle_file', 'rb'))
 
-status = False
-
+count = 0
+correct = 0
 # Makes a class that inherits from Resource
 class Classify(Resource):
-
-    count = 0
-    correct = 0
     # @marshal_with(get_resource_fields)
     def get(self):
         args = rssi_get_args.parse_args()
