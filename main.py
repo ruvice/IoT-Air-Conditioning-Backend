@@ -10,6 +10,8 @@ api = Api(app)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///rssidatabase.db'
 db = SQLAlchemy(app)
 
+count = 0
+correct = 0
 
 # Class for Model to store in database
 class RSSIModel(db.Model):
@@ -85,6 +87,11 @@ class Classify(Resource):
         resultJSON = json.dumps(result.tolist())
         print(resultJSON)
 
+        count += 1
+        if (resultJSON == "[1]"){
+            correct += 1;
+        }
+
         # Updating status database to track status of aircon
         statusUpdate = StatusModel.query.filter_by(id=1).first()
         if (resultJSON == "[4]"):
@@ -97,6 +104,7 @@ class Classify(Resource):
             statusUpdate.status = True
             db.session.add(statusUpdate)
             db.session.commit()
+        print(correct + "/" + count)
         return resultJSON
 
     @marshal_with(resource_fields)
