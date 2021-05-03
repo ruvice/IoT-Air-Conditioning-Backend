@@ -82,7 +82,7 @@ class Classify(Resource):
         resultJSON = json.dumps(result.tolist())
         print(resultJSON)
 
-        f = open("door_accuracy.txt", "a")
+        f = open("hall_accuracy.txt", "a")
         f.write(resultJSON + "\n")
         f.close()
 
