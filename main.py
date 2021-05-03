@@ -82,9 +82,9 @@ class Classify(Resource):
         resultJSON = json.dumps(result.tolist())
         print(resultJSON)
 
-        # f = open("door_accuracy.txt", "a")
-        # f.write(resultJSON + "\n")
-        # f.close()
+        f = open("door_accuracy.txt", "a")
+        f.write(resultJSON + "\n")
+        f.close()
 
         # if (resultJSON == "[1]"):
         #     f = open("room_accuracy.txt", "a")
