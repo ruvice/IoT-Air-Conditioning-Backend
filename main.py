@@ -82,19 +82,9 @@ class Classify(Resource):
         resultJSON = json.dumps(result.tolist())
         print(resultJSON)
 
-        f = open("hall_accuracy.txt", "a")
+        f = open("room_accuracy.txt", "a")
         f.write(resultJSON + "\n")
         f.close()
-
-        # if (resultJSON == "[1]"):
-        #     f = open("room_accuracy.txt", "a")
-        #     f.write("TRUE\n")
-        #     f.close()
-        # else:
-        #     f = open("room_accuracy.txt", "a")
-        #     f.write("FALSE\n")  
-        #     f.close()
-        
 
         # Updating status database to track status of aircon
         statusUpdate = StatusModel.query.filter_by(id=1).first()
