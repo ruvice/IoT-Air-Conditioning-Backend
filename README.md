@@ -1,7 +1,8 @@
 # CZ4171_BLE_Backend
-Python + Flask backend for BLE indoor positioning
+## About Me
+Python + Flask backend for BLE indoor positioning. Sadly, I lost the code for the Android app :(
 
-
+### Brief Description
 Files in test folder are used for debugging, you may ignore them.
 
 The server is run from main.py. Classifier is implemented in knn_classifier.py. 2 databases are used. statusdatabase.db holds the current status of the aircon and rssidatabase.db holds the latest rssi values from training. rssivalues.csv is a temporary file that holds the values from rssidatabase.db during retraining of the knn_classifier.
