@@ -1,6 +1,6 @@
 # CZ4171_BLE_Backend
 ## About Me
-Python + Flask backend for BLE indoor positioning. Sadly, I lost the code for the Android app :(
+This is my IoT Air Conditioning System's backend. Python + Flask backend for BLE indoor positioning. Sadly, I lost the code for the Android app :(
 
 ### Brief Description
 Files in test folder are used for debugging, you may ignore them.
